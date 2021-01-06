@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+      <br>
+      <h2>Products List</h2>
+      <a href="/addProduct" class="btn btn-primary" id="btn1">Add New Product </a><br>
+      <p>Here you will found all the Products that we have :</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i=0; i<product.length; i++) { %>
+          <tr>
+            <td><%= product[i].idproduct %></td>
+            <td><%= product[i].name %></td>
+            <td><%= product[i].price %> DH</td>
+            <td><%= product[i].namecate %></td>
+            <td>
+              <a href="product_edit/<%= product[i].idproduct %>" class="btn btn-primary">Edit</a>
+              <a href="deleteProduct/<%= product[i].idproduct %>" class="btn btn-danger">Delete</a></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <br>
+      <h2>Categories List</h2>
+      <a href="/addCategory" class="btn btn-primary" id="btn2">Add New Category </a><br>
+      <p>Here you will found all the Categories :</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i<category.length; i++) { %>
+          <tr>
+            <td><%= category[i].idcategory %></td>
+            <td><%= category[i].namecate %></td>
+            <td>
+              <a href="category_update/<%= category[i].idcategory %>" class="btn btn-primary">Edit</a>
+              <a href="deleteCate/<%= category[i].idcategory %>" class="btn btn-danger">Delete</a></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+        <br>
+      </div>
+</body>
+</html>
